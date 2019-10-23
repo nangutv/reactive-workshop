@@ -1,26 +1,31 @@
+import { ApolloProvider } from 'react-apollo';
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { withData } from './queries.js';
+import client from './apolloClient.js';
+
+function Content(props) {
+    if (props.data.loading) {
+        return <p>Loading...</p>;
+    }
+
+    const { edges } = props.data.search;
+
+    return (
+        edges.map((edge) => {
+            return <p key={edge.node.id}>{edge.node.name}</p>;
+        })
+    );
+}
+
+const ContentWithData = withData(Content);
+
+function App(props) {
+    return (
+        <ApolloProvider client={client}>
+            <ContentWithData />
+        </ApolloProvider>
+    );
 }
 
 export default App;

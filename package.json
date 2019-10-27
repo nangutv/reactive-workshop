@@ -1,5 +1,5 @@
 {
-  "name": "reactiveConfWorkshop",
+  "name": "reactive-conf-workshop",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -25,5 +25,8 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
   }
 }

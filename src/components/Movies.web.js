@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
 
-import { withData } from '../queries.js';
+import { withMovies } from '../queries.js';
 import { COVER_WIDTH, COVER_HEIGHT } from '../constants.js';
+import MovieDetail from './MovieDetail';
 
 const containerStyle = {
     padding: 20,
@@ -36,19 +37,32 @@ const loadingStyle = {
     fontSize: 50,
 };
 
-function renderMovie(movie) {
-    return (
-        <div key={movie.id} style={movieContainerStyle}>
-            <img src={movie.media.portrait} alt={`${movie.name} movie cover`} />
-            <span style={titleStyle}>{movie.name}</span>
-        </div>
-    );
-}
-
 class Movies extends PureComponent {
+    _openMovieDetail = (movieId) => {
+        this.setState({ movieId });
+    };
+
+    _onMovieDetailClose = () => {
+        this.setState({ movieId: null });
+    };
+
+    _renderMovie(movie) {
+        return (
+            <div key={movie.id} style={movieContainerStyle} onClick={() => this._openMovieDetail(movie.id)}>
+                <img src={movie.media.portrait} alt={`${movie.name} movie cover`} />
+                <span style={titleStyle}>{movie.name}</span>
+            </div>
+        );
+    }
+
     render() {
         const {props} = this;
         let content;
+        let movieDetail;
+
+        if (this.state && this.state.movieId != null) {
+            movieDetail = <MovieDetail movieId={this.state.movieId} onClose={this._onMovieDetailClose} />;
+        }
 
         if (props.data.loading) {
             content = <span style={loadingStyle}>Loading...</span>;
@@ -56,16 +70,17 @@ class Movies extends PureComponent {
             const { edges } = props.data.search;
 
             content = edges.map((edge) => {
-                return renderMovie(edge.node);
+                return this._renderMovie(edge.node);
             });
         }
 
         return (
             <div style={containerStyle}>
                 {content}
+                {movieDetail}
             </div>
         );
     }
 }
 
-export default withData(Movies);
+export default withMovies(Movies);

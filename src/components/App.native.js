@@ -2,7 +2,7 @@ import { ApolloProvider } from 'react-apollo';
 import { Text } from 'react-native';
 import React from 'react';
 
-import { withData } from '../queries.js';
+import { withMovies } from '../queries.js';
 import client from '../apolloClient.js';
 
 function Content(props) {
@@ -19,7 +19,7 @@ function Content(props) {
     );
 }
 
-const ContentWithData = withData(Content);
+const ContentWithData = withMovies(Content);
 
 function App(props) {
     return (

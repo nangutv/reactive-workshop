@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 
 import { withData } from '../queries.js';
 import { COVER_WIDTH, COVER_HEIGHT } from '../constants.js';
@@ -45,25 +45,27 @@ function renderMovie(movie) {
     );
 }
 
-function Movies(props) {
-    let content;
+class Movies extends PureComponent {
+    render() {
+        const {props} = this;
+        let content;
 
-    if (props.data.loading) {
-        content = <span style={loadingStyle}>Loading...</span>;
-    } else {
-        const { edges } = props.data.search;
+        if (props.data.loading) {
+            content = <span style={loadingStyle}>Loading...</span>;
+        } else {
+            const { edges } = props.data.search;
 
-        content = edges.map((edge) => {
-            return renderMovie(edge.node);
-        });
+            content = edges.map((edge) => {
+                return renderMovie(edge.node);
+            });
+        }
+
+        return (
+            <div style={containerStyle}>
+                {content}
+            </div>
+        );
     }
-
-    return (
-        <div style={containerStyle}>
-            {content}
-        </div>
-    );
 }
-
 
 export default withData(Movies);

@@ -4,13 +4,16 @@ import { COVER_WIDTH, COVER_HEIGHT } from '../constants.js';
 const containerStyle = {
     padding: 20,
     textAlign: 'center',
+    display: 'flex',
+    flexWrap: 'wrap',
+    flex: 1,
+    flexDirection: "row",
 };
 
 const movieContainerStyle = {
-    // display: 'inline-block',
     height: COVER_HEIGHT,
     margin: 10,
-    marginTop: 40,
+    marginTop: 60,
     width: COVER_WIDTH,
 };
 
@@ -21,15 +24,11 @@ const imageSize = {
 
 const titleStyle = {
     color: '#ffffff',
-    // display: 'inline-block',
     fontFamily: 'sans-serif',
-    fontSize: 20,
-    height: 25,
+    fontSize: 13,
     marginTop: 10,
     overflow: 'hidden',
     textAlign: 'center',
-    // textOverflow: 'ellipsis',
-    whiteSpace: 'nowrap',
     width: COVER_WIDTH,
 };
 

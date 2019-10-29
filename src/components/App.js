@@ -8,11 +8,11 @@ import OurView from './primitives/View';
 const containerStyle = {
     backgroundColor: '#111111',
     position: 'absolute',
-    width: '100%',
-    minHeight: '100%',
     margin: 0,
     top: 0,
     left: 0,
+    right: 0,
+    bottom: 0,
 };
 
 

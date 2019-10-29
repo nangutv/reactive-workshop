@@ -5,6 +5,7 @@ import MovieDetail from './MovieDetail';
 import OurView from './primitives/View';
 import OurText from './primitives/Text';
 import OurImage from './primitives/Image';
+import OurScrollView from './primitives/ScrollView';
 import MoviesStyle from './Movies.style.js';
 
 class Movies extends PureComponent {
@@ -45,10 +46,12 @@ class Movies extends PureComponent {
         }
 
         return (
-            <OurView style={MoviesStyle.containerStyle}>
-                {content}
-                {movieDetail}
-            </OurView>
+            <OurScrollView style={{ width: '100%', height: '100%'}}>
+                <OurView style={MoviesStyle.containerStyle}>
+                    {content}
+                    {movieDetail}
+                </OurView>
+            </OurScrollView>
         );
     }
 }

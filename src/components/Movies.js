@@ -19,7 +19,7 @@ class Movies extends PureComponent {
     _renderMovie(movie) {
         return (
             <OurView key={movie.id} style={MoviesStyle.movieContainerStyle} onClick={() => this._openMovieDetail(movie.id)}>
-                <OurImage url={movie.media.portrait} alt={`${movie.name} movie cover`} />
+                <OurImage url={movie.media.portrait} alt={`${movie.name} movie cover`} style={MoviesStyle.imageSize} />
                 <OurText style={MoviesStyle.titleStyle}>{movie.name}</OurText>
             </OurView>
         );

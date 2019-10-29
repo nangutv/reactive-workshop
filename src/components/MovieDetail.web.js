@@ -1,52 +1,7 @@
 import React from 'react';
 
 import { withDetail } from '../queries.js';
-
-const wrapperStyle = {
-    position: 'fixed',
-    textAlign: 'left',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    paddingTop: 100,
-    overflow: 'hidden',
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
-};
-
-const containerStyle = {
-    backgroundColor: '#333333',
-    width: 900,
-    minHeight: 400,
-    margin: 'auto',
-    color: '#ffffff',
-    borderRadius: 20,
-};
-
-const titleStyle = {
-    fontSize: 40,
-    fontWeight: 'bold',
-    margin: 20,
-};
-
-const descriptionStyle = {
-    fontSize: 20,
-    padding: 20,
-    paddingBottom: 30,
-};
-
-const imageContainerStyle = {
-    textAlign: 'center',
-};
-
-const closeButtonStyle = {
-    float: 'right',
-    width: 50,
-    height: 50,
-    fontSize: 30,
-    padding: 10,
-    textAlign: 'right',
-};
+import MovieDetailStyle from './MovieDetail.style.js';
 
 function MovieDetail(props) {
     if (props.data.loading) {
@@ -66,19 +21,19 @@ function MovieDetail(props) {
 
     if (imageUrl) {
         image = (
-            <div style={imageContainerStyle}>
+            <div style={MovieDetailStyle.imageContainerStyle}>
                 <img src={imageUrl} alt={`${node.name} movie cover`} />
             </div>
         );
     }
 
     return (
-        <div style={wrapperStyle}>
-            <div style={containerStyle}>
-                <div style={closeButtonStyle} onClick={props.onClose}>X</div>
+        <div style={MovieDetailStyle.wrapperStyle}>
+            <div style={MovieDetailStyle.containerStyle}>
+                <div style={MovieDetailStyle.closeButtonStyle} onClick={props.onClose}>X</div>
                 {image}
-                <div style={titleStyle}>{node.name}</div>
-                <div style={descriptionStyle}>{node.description}</div>
+                <div style={MovieDetailStyle.titleStyle}>{node.name}</div>
+                <div style={MovieDetailStyle.descriptionStyle}>{node.description}</div>
             </div>
         </div>
     );

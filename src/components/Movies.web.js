@@ -1,41 +1,8 @@
 import React, { PureComponent } from 'react';
 
 import { withMovies } from '../queries.js';
-import { COVER_WIDTH, COVER_HEIGHT } from '../constants.js';
 import MovieDetail from './MovieDetail';
-
-const containerStyle = {
-    padding: 20,
-    textAlign: 'center',
-};
-
-const movieContainerStyle = {
-    display: 'inline-block',
-    height: COVER_HEIGHT,
-    margin: 10,
-    marginTop: 40,
-    width: COVER_WIDTH,
-};
-
-const titleStyle = {
-    color: '#ffffff',
-    display: 'inline-block',
-    fontFamily: 'sans-serif',
-    fontSize: 20,
-    height: 25,
-    marginTop: 10,
-    overflow: 'hidden',
-    textAlign: 'center',
-    textOverflow: 'ellipsis',
-    whiteSpace: 'nowrap',
-    width: COVER_WIDTH,
-};
-
-const loadingStyle = {
-    color: '#ffffff',
-    fontFamily: 'sans-serif',
-    fontSize: 50,
-};
+import MoviesStyle from './Movies.style.js';
 
 class Movies extends PureComponent {
     _openMovieDetail = (movieId) => {
@@ -48,9 +15,9 @@ class Movies extends PureComponent {
 
     _renderMovie(movie) {
         return (
-            <div key={movie.id} style={movieContainerStyle} onClick={() => this._openMovieDetail(movie.id)}>
+            <div key={movie.id} style={MoviesStyle.movieContainerStyle} onClick={() => this._openMovieDetail(movie.id)}>
                 <img src={movie.media.portrait} alt={`${movie.name} movie cover`} />
-                <span style={titleStyle}>{movie.name}</span>
+                <span style={MoviesStyle.titleStyle}>{movie.name}</span>
             </div>
         );
     }
@@ -65,7 +32,7 @@ class Movies extends PureComponent {
         }
 
         if (props.data.loading) {
-            content = <span style={loadingStyle}>Loading...</span>;
+            content = <span style={MoviesStyle.loadingStyle}>Loading...</span>;
         } else {
             const { edges } = props.data.search;
 
@@ -75,7 +42,7 @@ class Movies extends PureComponent {
         }
 
         return (
-            <div style={containerStyle}>
+            <div style={MoviesStyle.containerStyle}>
                 {content}
                 {movieDetail}
             </div>

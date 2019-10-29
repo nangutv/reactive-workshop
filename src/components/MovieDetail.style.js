@@ -1,31 +1,32 @@
 const wrapperStyle = {
-    position: 'fixed',
+    position: 'absolute',
     textAlign: 'left',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    paddingTop: 100,
+    width:1080,
+    height: 720,
     overflow: 'hidden',
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    justifyContent: 'center',
+    flexDirection: 'row',
+    alignItems: 'center',
 };
 
 const containerStyle = {
     backgroundColor: '#333333',
-    width: 900,
-    minHeight: 400,
-    margin: 'auto',
+    width: '60%',
+    minHeight: 200,
     color: '#ffffff',
     borderRadius: 20,
 };
 
 const titleStyle = {
+    color: '#ffffff',
     fontSize: 40,
     fontWeight: 'bold',
     margin: 20,
 };
 
 const descriptionStyle = {
+    color: '#ffffff',
     fontSize: 20,
     padding: 20,
     paddingBottom: 30,
@@ -33,10 +34,12 @@ const descriptionStyle = {
 
 const imageContainerStyle = {
     textAlign: 'center',
+    width: 200,
+    height: 200,
 };
 
 const closeButtonStyle = {
-    float: 'right',
+    color: '#ffffff',
     width: 50,
     height: 50,
     fontSize: 30,

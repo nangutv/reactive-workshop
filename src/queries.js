@@ -14,8 +14,8 @@ const DETAIL_QUERY = gql`
                     description
                     name
                     media {
-                        landscape(width: 800, height: 300)
-                        screenshots(width: 800, height: 300)
+                        landscape(width: 400, height: 300)
+                        screenshots(width: 400, height: 300)
                     }
                 }
             }

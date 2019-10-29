@@ -3,6 +3,7 @@ import React from 'react';
 
 import client from '../apolloClient.js';
 import Movies from './Movies';
+import OurView from './primitives/View';
 
 const containerStyle = {
     backgroundColor: '#111111',
@@ -18,9 +19,9 @@ const containerStyle = {
 function App(props) {
     return (
         <ApolloProvider client={client}>
-            <div style={containerStyle}>
+            <OurView style={containerStyle}>
                 <Movies />
-            </div>
+            </OurView>
         </ApolloProvider>
     );
 }

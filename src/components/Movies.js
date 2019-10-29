@@ -2,6 +2,9 @@ import React, { PureComponent } from 'react';
 
 import { withMovies } from '../queries.js';
 import MovieDetail from './MovieDetail';
+import OurView from './primitives/View';
+import OurText from './primitives/Text';
+import OurImage from './primitives/Image';
 import MoviesStyle from './Movies.style.js';
 
 class Movies extends PureComponent {
@@ -15,10 +18,10 @@ class Movies extends PureComponent {
 
     _renderMovie(movie) {
         return (
-            <div key={movie.id} style={MoviesStyle.movieContainerStyle} onClick={() => this._openMovieDetail(movie.id)}>
-                <img src={movie.media.portrait} alt={`${movie.name} movie cover`} />
-                <span style={MoviesStyle.titleStyle}>{movie.name}</span>
-            </div>
+            <OurView key={movie.id} style={MoviesStyle.movieContainerStyle} onClick={() => this._openMovieDetail(movie.id)}>
+                <OurImage url={movie.media.portrait} alt={`${movie.name} movie cover`} />
+                <OurText style={MoviesStyle.titleStyle}>{movie.name}</OurText>
+            </OurView>
         );
     }
 
@@ -32,7 +35,7 @@ class Movies extends PureComponent {
         }
 
         if (props.data.loading) {
-            content = <span style={MoviesStyle.loadingStyle}>Loading...</span>;
+            content = <OurText style={MoviesStyle.loadingStyle}>Loading...</OurText>;
         } else {
             const { edges } = props.data.search;
 
@@ -42,10 +45,10 @@ class Movies extends PureComponent {
         }
 
         return (
-            <div style={MoviesStyle.containerStyle}>
+            <OurView style={MoviesStyle.containerStyle}>
                 {content}
                 {movieDetail}
-            </div>
+            </OurView>
         );
     }
 }

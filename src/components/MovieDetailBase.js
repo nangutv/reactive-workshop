@@ -1,5 +1,4 @@
 import React from 'react';
-// import { BackHandler } from 'react-native';
 
 import { withDetail } from '../queries.js';
 import MovieDetailStyle from './MovieDetail.style.js';
@@ -11,16 +10,6 @@ function MovieDetail(props) {
     if (props.data.loading) {
         return null;
     }
-
-    // BackHandler.addEventListener('hardwareBackPress', function() {
-    //     if (props.onClose) {
-    //         props.onClose();
-    //         return true;
-    //     }
-
-    //     return false;
-
-    // });
 
     const { node } = props.data.search.edges[0];
 
@@ -36,21 +25,19 @@ function MovieDetail(props) {
     if (imageUrl) {
         image = (
             <OurView style={MovieDetailStyle.imageContainerStyle}>
-                <OurImage url={imageUrl} alt={`${node.name} detail cover`} style={{width: 400, height: 200}} />
+                <OurImage url={imageUrl} alt={`${node.name} detail cover`} style={{width: '100%', height: 200}} />
             </OurView>
         );
     }
 
     return (
-        <OurView style={MovieDetailStyle.wrapperStyle}>
-            <OurView style={MovieDetailStyle.containerStyle}>
-                <OurView onClick={props.onClose}>
-                    <OurText style={MovieDetailStyle.closeButtonStyle}>X</OurText>
-                </OurView>
-                {image}
-                <OurText style={MovieDetailStyle.titleStyle}>{node.name}</OurText>
-                <OurText style={MovieDetailStyle.descriptionStyle}>{node.description}</OurText>
+        <OurView style={MovieDetailStyle.containerStyle}>
+            <OurView onClick={props.onClose}>
+                <OurText style={MovieDetailStyle.closeButtonStyle}>X</OurText>
             </OurView>
+            {image}
+            <OurText style={MovieDetailStyle.titleStyle}>{node.name}</OurText>
+            <OurText style={MovieDetailStyle.descriptionStyle}>{node.description}</OurText>
         </OurView>
     );
 }

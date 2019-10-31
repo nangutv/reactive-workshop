@@ -32,7 +32,7 @@ function MovieDetail(props) {
 
     return (
         <OurView style={MovieDetailStyle.containerStyle}>
-            <OurView onClick={props.onClose}>
+            <OurView onClick={props.onClose} style={MovieDetailStyle.closeButtonContainerStyle}>
                 <OurText style={MovieDetailStyle.closeButtonStyle}>X</OurText>
             </OurView>
             {image}

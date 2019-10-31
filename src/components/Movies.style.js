@@ -8,6 +8,7 @@ const containerStyle = {
     flexWrap: 'wrap',
     flex: 1,
     flexDirection: "row",
+    fontFamily: 'sans-serif',
 };
 
 const movieContainerStyle = {

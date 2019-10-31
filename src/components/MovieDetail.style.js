@@ -12,7 +12,7 @@ const wrapperStyle = {
 
 const containerStyle = {
     backgroundColor: '#333333',
-    width: '60%',
+    flex: 0.5,
     minHeight: 200,
     color: '#ffffff',
     borderRadius: 20,
@@ -33,16 +33,20 @@ const descriptionStyle = {
 };
 
 const imageContainerStyle = {
-    textAlign: 'center',
-    width: 200,
+    alignSelf: 'center',
+};
+
+const imageStyle = {
+    width: 400,
     height: 200,
 };
 
 const closeButtonStyle = {
+    alignSelf: 'flex-end',
     color: '#ffffff',
     width: 50,
     height: 50,
-    fontSize: 30,
+    fontSize: 20,
     padding: 10,
     textAlign: 'right',
 };
@@ -53,5 +57,6 @@ export default {
     titleStyle,
     descriptionStyle,
     imageContainerStyle,
+    imageStyle,
     closeButtonStyle
 }

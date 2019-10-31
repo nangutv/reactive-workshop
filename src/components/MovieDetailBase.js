@@ -25,7 +25,7 @@ function MovieDetail(props) {
     if (imageUrl) {
         image = (
             <OurView style={MovieDetailStyle.imageContainerStyle}>
-                <OurImage url={imageUrl} alt={`${node.name} detail cover`} style={{width: '100%', height: 200}} />
+                <OurImage url={imageUrl} alt={`${node.name} detail cover`} style={MovieDetailStyle.imageStyle} />
             </OurView>
         );
     }

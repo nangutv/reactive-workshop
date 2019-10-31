@@ -2,7 +2,7 @@ import React from 'react';
 import { Modal } from 'react-native';
 
 import { withDetail } from '../queries.js';
-import MovieDetailStyle from './MovieDetail.style.js';
+import MovieDetailStyle from './MovieDetail.style';
 import MovieDetailBase from './MovieDetailBase.js';
 import OurView from './primitives/View';
 

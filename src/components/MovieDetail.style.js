@@ -1,7 +1,8 @@
+import isMobile from '../lib/isMobile';
+
 const wrapperStyle = {
     display: 'flex',
     position: 'absolute',
-    textAlign: 'left',
     width: '100%',
     height: '100%',
     overflow: 'hidden',
@@ -20,6 +21,10 @@ const containerStyle = {
     borderRadius: 20,
     flexDirection: 'column',
 };
+
+if (isMobile()) {
+    containerStyle.flex = 0.9;
+}
 
 const titleStyle = {
     color: '#ffffff',
@@ -42,6 +47,7 @@ const imageContainerStyle = {
 const imageStyle = {
     width: 400,
     height: 200,
+    maxWidth: '100%',
 };
 
 const closeButtonContainerStyle = {
@@ -54,7 +60,6 @@ const closeButtonStyle = {
     height: 50,
     fontSize: 20,
     padding: 10,
-    textAlign: 'right',
 };
 
 export default {
@@ -66,4 +71,4 @@ export default {
     imageStyle,
     closeButtonStyle,
     closeButtonContainerStyle,
-}
+};

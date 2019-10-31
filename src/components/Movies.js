@@ -19,9 +19,11 @@ class Movies extends PureComponent {
 
     _renderMovie(movie) {
         return (
-            <OurView key={movie.id} style={MoviesStyle.movieContainerStyle} onClick={() => this._openMovieDetail(movie.id)}>
-                <OurImage url={movie.media.portrait} alt={`${movie.name} movie cover`} style={MoviesStyle.imageSize} />
-                <OurText style={MoviesStyle.titleStyle}>{movie.name}</OurText>
+            <OurView key={movie.id} style={MoviesStyle.movieWrapperStyle}>
+                <OurView style={MoviesStyle.movieContainerStyle} onClick={() => this._openMovieDetail(movie.id)}>
+                    <OurImage url={movie.media.portrait} alt={`${movie.name} movie cover`} style={MoviesStyle.imageSize} />
+                    <OurText style={MoviesStyle.titleStyle}>{movie.name}</OurText>
+                </OurView>
             </OurView>
         );
     }
@@ -46,7 +48,7 @@ class Movies extends PureComponent {
         }
 
         return (
-            <OurScrollView style={{ width: '100%', height: '100%'}}>
+            <OurScrollView>
                 <OurView style={MoviesStyle.containerStyle}>
                     {content}
                     {movieDetail}

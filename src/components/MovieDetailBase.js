@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { withDetail } from '../queries.js';
-import MovieDetailStyle from './MovieDetail.style.js';
+import MovieDetailStyle from './MovieDetail.style';
 import OurView from './primitives/View';
 import OurImage from './primitives/Image';
 import OurText from './primitives/Text';

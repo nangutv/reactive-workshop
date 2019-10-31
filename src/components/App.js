@@ -6,13 +6,16 @@ import Movies from './Movies';
 import OurView from './primitives/View';
 
 const containerStyle = {
-    backgroundColor: '#111111',
+    justifyContent: 'center',
+    display: 'flex',
+    flexDirection: "row",
     position: 'absolute',
     margin: 0,
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
+    backgroundColor: '#111111',
 };
 
 

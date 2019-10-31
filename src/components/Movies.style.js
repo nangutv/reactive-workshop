@@ -2,20 +2,25 @@
 import { COVER_WIDTH, COVER_HEIGHT } from '../constants.js';
 
 const containerStyle = {
+    backgroundColor: '#111111',
     padding: 20,
-    textAlign: 'center',
     display: 'flex',
     flexWrap: 'wrap',
     flex: 1,
     flexDirection: "row",
     fontFamily: 'sans-serif',
+    justifyContent: 'center',
+};
+
+const movieWrapperStyle = {
+    marginTop: 60,
 };
 
 const movieContainerStyle = {
-    height: COVER_HEIGHT,
     margin: 10,
-    marginTop: 60,
+    height: COVER_HEIGHT,
     width: COVER_WIDTH,
+    textAlign: 'center',
 };
 
 const imageSize = {
@@ -42,6 +47,7 @@ const loadingStyle = {
 export default {
     containerStyle,
     movieContainerStyle,
+    movieWrapperStyle,
     imageSize,
     titleStyle,
     loadingStyle
